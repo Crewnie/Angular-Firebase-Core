@@ -1,8 +1,15 @@
 import { Routes, RouterModule } from '@angular/router';
 
-//Route for content layout with sidebar, navbar and footer.
+import { AccountHealthGuard } from '../../guards/account-health-guard.service';
+
+// Route for content layout with sidebar, navbar and footer.
 
 export const Full_ROUTES: Routes = [
+  {
+    path: 'me',
+    canLoad: [AccountHealthGuard],
+    loadChildren: './pages/full-pages/full-pages.module#FullPagesModule'
+  },
   {
     path: 'dashboard',
     loadChildren: './dashboard/dashboard.module#DashboardModule'
@@ -40,10 +47,6 @@ export const Full_ROUTES: Routes = [
     loadChildren: './components/ui-components.module#UIComponentsModule'
   },
   {
-    path: 'pages',
-    loadChildren: './pages/full-pages/full-pages.module#FullPagesModule'
-  },
-  {
     path: 'cards',
     loadChildren: './cards/cards.module#CardsModule'
   },
@@ -59,5 +62,4 @@ export const Full_ROUTES: Routes = [
     path: 'inbox',
     loadChildren: './inbox/inbox.module#InboxModule'
   },
-
 ];
