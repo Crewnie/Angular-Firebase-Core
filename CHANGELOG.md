@@ -1,4 +1,4 @@
-# [Apex - Angular Bootstrap Admin Template]
+# [Crewnie - Angular Bootstrap Platform]
 
 
 ### Changelog

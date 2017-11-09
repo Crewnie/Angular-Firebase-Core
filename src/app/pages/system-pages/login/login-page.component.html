@@ -10,16 +10,17 @@
                     <div class="card-body">
                         <div class="card-block">
                             <h2>Login</h2>
-                            <form novalidate="" (ngSubmit)="onSubmit()" #f="ngForm">
+                            <form (ngSubmit)="onSubmit()" #f="ngForm">
                                 <div class="form-group">
                                     <div class="col-md-12">
-                                        <input type="email" class="form-control" name="inputEmail" id="inputEmail" placeholder="Email" ngModel required email>
+                                        <input type="email" class="form-control purple" name="inputEmail" id="inputEmail" placeholder="Email" #inputEmail="ngModel" ngModel required email>
                                     </div>
                                 </div>
+                                <small class="form-text nmt-3 mb-3" [ngStyle]="{'color': '#FFBFC3'}"  *ngIf="!inputEmail.valid && (inputEmail.dirty || inputEmail.touched)"> Please enter a valid email! </small>
 
                                 <div class="form-group">
                                     <div class="col-md-12">
-                                        <input type="password" class="form-control" name="inputPass" id="inputPass" placeholder="Password" ngModel required>
+                                        <input type="password" class="form-control purple" name="inputPass" id="inputPass" placeholder="Password" ngModel required minlength="6">
                                     </div>
                                 </div>
 
@@ -27,7 +28,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
-                                                <input type="checkbox" class="custom-control-input" checked>
+                                                <input type="checkbox" name="ckeckRemember" id="ckeckRemember" #ckeckRemember="ngModel" class="custom-control-input" ngModel checked>
                                                 <span class="custom-control-indicator ml-4"></span>
                                                 <span class="pl-2">Remember Me</span>
                                             </label>
@@ -37,8 +38,8 @@
 
                                 <div class="form-group">
                                     <div class="col-md-12">
-                                        <button type="button" class="btn btn-pink btn-block btn-raised">Submit</button>
-                                        <button type="button" class="btn btn-secondary btn-block btn-raised">Cancel</button>
+                                        <button type="submit" class="btn btn-pink btn-block btn-raised" [disabled]="!f.valid">Submit</button>
+                                        <a class="btn btn-secondary btn-block btn-raised" routerLink="/">Cancel</a>
                                     </div>
                                 </div>
                             </form>

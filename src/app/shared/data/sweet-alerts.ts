@@ -139,7 +139,7 @@ export function confirmText() {
         confirmButtonColor: '#33cc33',
         cancelButtonColor: '#FF586B',
         confirmButtonText: 'Text Changed',
-        cancelButtonText: "No, cancel"
+        cancelButtonText: 'No, cancel'
     }).then(function (isConfirm) {
         if (isConfirm) {
             swal(
@@ -180,7 +180,7 @@ export function confirmCancelButton() {
                 'error'
             )
         }
-    })    
+    })
 }
 
 // Chaining modals / Steps
@@ -191,8 +191,9 @@ export function steps() {
       cancelButtonColor: '#FF586B',
       animation: false
     });
-    
-    var steps = [
+
+    // tslint:disable-next-line:no-shadowed-variable
+    const steps = [
       {
         title: 'Step 1',
         text: 'Chaining modals is easy with Step 1'
@@ -206,7 +207,7 @@ export function steps() {
         text: 'Chaining modals is easy with Step 3'
       },
     ];
-    
+
     swal.queue(steps).then(function() {
       swal({
         title: 'All done!',

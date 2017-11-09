@@ -32,10 +32,10 @@ export class ToastrService {
 
     // Timeout
     timeout() {
-        this.toastr.error('I do not think that word means what you think it means.', 'Timeout!', { "toastLife": 2000 });
+        this.toastr.error('I do not think that word means what you think it means.', 'Timeout!', { 'toastLife': 2000 });
     }
 
-    //Dismiss toastr on Click
+    // Dismiss toastr on Click
     dismissToastOnClick() {
         this.toastr.info('We do have the Kapua suite available.', 'Turtle Bay Resort', { dismiss: 'click' });
     }

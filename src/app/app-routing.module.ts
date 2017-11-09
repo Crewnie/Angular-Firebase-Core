@@ -14,7 +14,7 @@ import { SYSTEM_ROUTES } from './shared/routes/system-layout.routes';
 
 const appRoutes: Routes = [
 
-  { path: '', component: HomeLandingPageLayoutComponent, data: {}, children: HOME_LANDINGPAGE_ROUTES},
+  { path: '', component: HomeLandingPageLayoutComponent, data: { title: 'Welcome to Crewnie' }, children: HOME_LANDINGPAGE_ROUTES},
   { path: '', component: FullLayoutComponent, data: { title: 'full Views' }, children: Full_ROUTES },
   { path: '', component: SystemLayoutComponent, data: { title: 'System Views' }, children: SYSTEM_ROUTES },
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-coming-soon-page',
@@ -16,8 +16,8 @@ export class ComingSoonPageComponent implements OnInit {
         // coming soon JS start working after page load
         $.getScript('./assets/js/coming-soon/coming-soon.js');
     }
-    
+
     constructor(private router: Router,
         private route: ActivatedRoute) { }
-        
+
 }

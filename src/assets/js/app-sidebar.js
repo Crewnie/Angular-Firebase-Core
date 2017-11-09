@@ -1,10 +1,11 @@
 /*!
  =========================================================
- * Apex Angular 4 Bootstrap theme - V1.0
+ * Crewnie Angular 4 Bootstrap platform - V1.0
  =========================================================
 
- * Product Page: https://www.pixinvent.com/product/apex
- * Copyright 2017 Pixinvent Creative Studio (https://www.pixinvent.com)
+ * Crewnie Zone: https://www.crewnie.com/
+ * Copyright 2017 Publiherz - Creative Studio (http://publiherz.com/)
+ * Developed by: Ing. Alejandro Javier Villalón Navarro.
 
  =========================================================
 */

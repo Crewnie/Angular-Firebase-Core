@@ -1,12 +1,11 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-
-import { AsyncPipe } from '@angular/common';
 
 // Auth Service
 import { AuthService } from '../../../core/auth.service';
 
+// Sweet alerts notifications
 import swal from 'sweetalert2';
 
 
@@ -16,7 +15,7 @@ import swal from 'sweetalert2';
     styleUrls: ['./register-page.component.scss']
 })
 
-export class RegisterPageComponent implements OnInit {
+export class RegisterPageComponent {
     @ViewChild('f') registerForm: NgForm;
 
     constructor(
@@ -25,10 +24,6 @@ export class RegisterPageComponent implements OnInit {
         private acAuth: AuthService  // Angular Crewnie Authentication
     ) {  }
 
-    ngOnInit() {
-
-    }
-
     //  On submit click, the user registration process starts
     onSubmit() {
 
@@ -36,12 +31,17 @@ export class RegisterPageComponent implements OnInit {
         const email: string = this.registerForm.value.inputEmail;
         const password: string = this.registerForm.value.inputPass;
 
-        this.acAuth.createUserWithEmailAndPassword(email, password)
+        // We set the register persistent.
+        this.acAuth.afAuth.auth.setPersistence('local').catch(e => {
+            console.log('Error code: ' + e.code + ', error message: ' + e.message);
+        });
+
+        this.acAuth.afAuth.auth.createUserWithEmailAndPassword(email, password)
             .then(crewnieUser => {
                 // We inform the user that their registration was correct.
                 swal('Good job!', 'Now just check your email.', 'success').then( () => {
-                    this.router.navigate(['/users/me'], { relativeTo: this.route.parent });
-                });
+                    this.router.navigate(['/me'], { relativeTo: this.route.parent });
+                }, dismiss => { });
 
                 crewnieUser.updateProfile({
                     displayName: stageName,

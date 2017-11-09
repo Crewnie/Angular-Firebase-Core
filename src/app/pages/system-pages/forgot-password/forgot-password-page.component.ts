@@ -1,6 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute } from '@angular/router';
+
+// Auth Service
+import { AuthService } from '../../../core/auth.service';
+
+// Sweet alerts notifications
+import swal from 'sweetalert2';
 
 @Component({
     selector: 'app-forgot-password-page',
@@ -11,21 +17,26 @@ import { Router, ActivatedRoute } from "@angular/router";
 export class ForgotPasswordPageComponent {
     @ViewChild('f') forogtPasswordForm: NgForm;
 
-    constructor(private router: Router,
-        private route: ActivatedRoute) { }
+    constructor(
+        private router: Router,
+        private route: ActivatedRoute,
+        private acAuth: AuthService  // Angular Crewnie Authentication
+    ) { }
 
     // On submit click, reset form fields
     onSubmit() {
-        this.forogtPasswordForm.reset();
-    }
+        const email: string = this.forogtPasswordForm.value.inputEmail;
 
-    // On login link click
-    onLogin() {
-        this.router.navigate(['login'], { relativeTo: this.route.parent });
-    }
+        this.acAuth.afAuth.auth.sendPasswordResetEmail(email)
+        .then(() => {
+            swal('Email sent successfully!', 'Now just check your email.', 'success').then( () => {
+                this.router.navigate(['/login'], { relativeTo: this.route.parent });
+            });
 
-    // On registration link click
-    onRegister() {
-        this.router.navigate(['register'], { relativeTo: this.route.parent });
+        })
+        .catch(e => {
+            // We inform the user that something went wrong
+            swal('Something went wrong.', e.message, 'error');
+        });
     }
 }

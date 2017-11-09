@@ -9,73 +9,73 @@ import * as alertFunctions from '../../../shared/data/sweet-alerts';
 })
 
 export class SweetAlertsComponent  {
-    
+
     // Simple Alert
-    basicAlert(){
+    basicAlert() {
       alertFunctions.basicAlert();
     }
     // Alert with Title
-    withTitle(){
+    withTitle() {
       alertFunctions.withTitle();
     }
     //  HTML Alert
-    htmlAlert(){
+    htmlAlert() {
       alertFunctions.htmlAlert();
     }
     // Question Type Alert
-    typeQuestion(){
+    typeQuestion() {
       alertFunctions.typeQuestion();
     }
     // Success Type Alert
-    typeSuccess(){
+    typeSuccess() {
       alertFunctions.typeSuccess();
     }
     // Info Type Alert
-    typeInfo(){
+    typeInfo() {
       alertFunctions.typeInfo();
     }
     // Warning Type Alert
-    typeWarning(){
+    typeWarning() {
       alertFunctions.typeWarning();
     }
     // Error Type Alert
-    typeError(){
+    typeError() {
       alertFunctions.typeError();
     }
-    // Custom Icon 
-    customIcon(){
+    // Custom Icon
+    customIcon() {
       alertFunctions.customIcon();
     }
     // Auto close timer
-    autoClose(){
+    autoClose() {
       alertFunctions.autoClose();
     }
     // Allow Outside Click
-    outsideClick(){
+    outsideClick() {
       alertFunctions.outsideClick();
     }
     // Ajax Request
-    ajaxRequest(){
+    ajaxRequest() {
       alertFunctions.ajaxRequest();
     }
     // Button Options
-    customButton(){
+    customButton() {
       alertFunctions.customButton();
     }
     // Prompt Function
-    promptFunction(){
+    promptFunction() {
       alertFunctions.promptFunction();
     }
     // Confirm Button Action
-    confirmText(){
+    confirmText() {
       alertFunctions.confirmText();
     }
     // Confirm & Cancel Button
-    confirmCancelButton(){
+    confirmCancelButton() {
       alertFunctions.confirmCancelButton();
     }
     // Chaining modals / Steps
-    steps(){
+    steps() {
       alertFunctions.steps();
     }
 }

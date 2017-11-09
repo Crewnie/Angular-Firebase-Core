@@ -1,11 +1,10 @@
 /*=========================================================================================
   File Name: app.js
-  Description: Template related app JS.
+  Description: Crewnierelated app JS.
   ----------------------------------------------------------------------------------------
-  Item Name: Robust - Responsive Admin Theme
   Version: 1.2
-  Author: GeeksLabs
-  Author URL: http://www.themeforest.net/user/geekslabs
+  Author: Ing. Alejandro Javier Villalón Navarro.
+  Author URL: http://www.publiherz.com/
 ==========================================================================================*/
 
 (function(window, document, $) {

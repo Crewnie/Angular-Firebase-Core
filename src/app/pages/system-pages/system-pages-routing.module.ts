@@ -9,45 +9,50 @@ import { ErrorPageComponent } from './error/error-page.component';
 import { MaintenancePageComponent } from './maintenance/maintenance-page.component';
 import { LockScreenPageComponent } from './lock-screen/lock-screen-page.component';
 
+import { IsLoginGuard } from '../../guards/account-health-guard.service';
+
 const routes: Routes = [
   {
     path: '',
     children: [
       // Access pages to Crewnie
       {
-        path: 'login',
-        component: LoginPageComponent,
-        data: {
-          title: 'Login Page'
+        path: '',
+        canActivateChild: [IsLoginGuard],
+        children: [
+          { path: 'login',
+          component: LoginPageComponent,
+          data: {
+            title: 'Login Page'
+          }
+        },
+          { path: 'register',
+          component: RegisterPageComponent,
+          data: {
+            title: 'Register Page'
+          }
+        },
+          { path: 'forgotpassword',
+          component: ForgotPasswordPageComponent,
+          data: {
+            title: 'Forgot Password Page'
+          }
         }
-      },
-      {
-        path: 'register',
-        component: RegisterPageComponent,
-        data: {
-          title: 'Register Page'
-        }
-      },
-      {
-        path: 'forgotpassword',
-        component: ForgotPasswordPageComponent,
-        data: {
-          title: 'Forgot Password Page'
-        }
-      },
+    ]},
+
       // Crewnie exceptions
-      {
-        path: 'maintenance',
-        component: MaintenancePageComponent,
-        data: {
-          title: 'Maintenance Page'
-        }
-      },
       {
         path: 'waiting-for',
         component: LockScreenPageComponent,
         data: {
           title: 'Lock Screen page'
+        }
+      },
+      {
+        path: 'maintenance',
+        component: MaintenancePageComponent,
+        data: {
+          title: 'Maintenance Page'
         }
       },
       {
