@@ -81,17 +81,18 @@ export class IsLoginGuard implements CanActivateChild {
         private acAuth: AuthService  // Angular Crewnie Authentication
     ) { }
 
-      canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean>  {
-        console.log('AuthGuard#canActivateChild called');
+    canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean>  {
+    console.log('AuthGuard#canActivateChild called');
 
-        return this.acAuth.afAuth.authState.map( firebaseUser => {
-            if (!!firebaseUser) {
-                this.router.navigate(['/me']);
-                return false
-            } else {
-                return true;
-            }
-        })
-        .first();
-    }
+    return this.acAuth.afAuth.authState.map( firebaseUser => {
+        if (!!firebaseUser) {
+            this.acAuth.toastr.info('You will be redirected to the action.', "You are already inside!");
+            this.router.navigate(['/me']);
+            return false
+        } else {
+            return true;
+        }
+    })
+    .first();
+}
 }

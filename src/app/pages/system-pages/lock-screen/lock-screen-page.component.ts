@@ -121,12 +121,8 @@ export class LockScreenPageComponent implements OnInit {
     }
 
     onLogout() {
-        this.acAuth.logout()
-        .then(() => {
-            this.router.navigate(['/login'], { relativeTo: this.route.parent });
-        });
+        this.acAuth.logout();
         console.log('Now you are log out');
-
     }
 
 }

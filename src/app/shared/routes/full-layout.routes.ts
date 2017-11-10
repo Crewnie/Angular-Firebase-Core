@@ -11,11 +11,15 @@ export const Full_ROUTES: Routes = [
     loadChildren: './pages/full-pages/full-pages.module#FullPagesModule'
   },
   {
-    path: 'demo/colors',
-    loadChildren: './color-palette/color-palette.module#ColorPaletteModule'
-  },
-  {
-    path: 'demo/cards',
-    loadChildren: './cards/cards.module#CardsModule'
-  },
+    path: 'demo',
+    children: [
+      {
+        path: 'colors',
+        loadChildren: './color-palette/color-palette.module#ColorPaletteModule'
+      },
+      {
+        path: 'cards',
+        loadChildren: './cards/cards.module#CardsModule'
+      },
+    ]},
 ];

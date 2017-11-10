@@ -46,9 +46,13 @@ export class AuthService {
         });
         // return this.afAuth.auth.signInWithEmailAndPassword(email, password);
     }
+
     logout() {
         // tslint:disable-next-line:quotemark
         this.toastr.warning('Getting out is security too.', "You're out!");
-        return this.afAuth.auth.signOut();
+        return this.afAuth.auth.signOut()
+        .then(() => {
+            this.router.navigate(['/login'], { relativeTo: this.route.parent });
+        });
     }
 }
